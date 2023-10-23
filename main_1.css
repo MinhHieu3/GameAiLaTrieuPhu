@@ -1,0 +1,124 @@
+/*.center{*/
+/*    margin: 0;*/
+/*    height: 50vh;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    text-align: center;*/
+/*    font-size: 30px;*/
+/*    font-weight: bold;*/
+/*    font-family: "Arial Rounded MT Bold";*/
+/*}*/
+body{
+    line-height: 1.42857143px;
+}
+h1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block-start: 0.67em;
+    margin-block-end: 0.67em;
+    margin-inline-start: 0px;
+    margin-inline-end: 0px;
+    margin-bottom: 50px;
+}
+img{
+    width: 200px;
+    height: 200px;
+    aspect-ratio: auto 200/200;
+}
+img{
+    vertical-align: middle;
+    overflow-clip-margin: content-box;
+    overflow: clip;
+}
+.menu_1{
+    display: flex;
+    justify-content: center;
+    height: 5vh;
+    padding: 2px;
+}
+.question{
+    color: #FFFFFF;
+    line-height: 100px;
+    text-align: center;
+    font-weight: bold;
+    background-color: green;
+    text-transform: capitalize;
+    font-size: 20px;
+}
+table,tr,th {
+    width: 700px;
+}
+.swich{
+    background-color: aqua;
+    width: 350px;
+    height: 50px;
+    border-radius: 10px;
+    text-align: center;
+    font-size: 18px;
+    border-color: #dddddd;
+}
+.chucnang{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+    margin: 100px;
+    padding: inherit;
+}
+.time{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 100px;
+}
+.reset{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     flex-direction:column;
+     padding: inherit;
+ }
+.swich_1{
+    background-color: coral;
+    width: 150px;
+    height: 30px;
+    border-radius: 5px;
+    text-align: center;
+    font-size: 18px;
+    border-color: #dddddd;
+}
+.rewardstep{
+    height: 50px;
+    width: 100px;
+    background-color: dodgerblue;
+    color: #FFFFFF;
+    margin-top: 1px;
+    margin-left:5px ;
+    font-size: 20px;
+    text-align: center;
+    line-height:13px ;
+    padding-left: 1px;
+}
+*{
+    box-sizing: border-box;
+}
+.img_1{
+    margin-top: 100px;
+    position: fixed;
+    top: 0;
+    right: 0;
+}
+.point{
+    background-color: #3498db;
+    color: #FFFFFF;
+    font-size: 20px;
+    font-weight: bold;
+    width: 100px;
+    height: 40px;
+    position: fixed;
+    left: 0px;
+    top: 100px;
+    line-height: 40px;
+}

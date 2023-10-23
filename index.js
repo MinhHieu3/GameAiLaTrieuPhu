@@ -59,56 +59,36 @@ class Millioaire {
 }
 
 //Thời gian đếm ngược
-let countdown = 60;
+let minutes = 0;
+let seconds = 60;
 
-function startgame() {
-    document.querySelector("button").disabled = true; // Ẩn nút "Start Countdown"
-
-    function countDownEverySecond() {
-        countdown--; // Giảm thời gian xuống 1 giây
-
-        // Hiển thị thời gian còn lại
-        document.getElementById("time").innerHTML = countdown;
-
-        if (countdown === 0) {
-            document.getElementById("time").innerHTML = "Hết giờ!";
-            // Khi hết thời gian, bạn có thể thực hiện các hành động cụ thể ở đây.
+function updateCountdown() {
+    setInterval(interval)
+    {
+        if (minutes === 0 && seconds === 0) {
+            document.getElementById('time').textContent = "00:00";
         } else {
-            // Gọi lại hàm countDownEverySecond sau 1 giây
-            setTimeout(countDownEverySecond, 1000);
+            if (seconds === 0) {
+                minutes--;
+                seconds = 59;
+            } else {
+                seconds--;
+            }
+
+            const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+            const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
+
+            const countdownText = `${formattedMinutes}:${formattedSeconds}`;
+            document.getElementById('time').textContent = countdownText;
         }
     }
-
-    // Bắt đầu đếm ngược bằng cách gọi hàm countDownEverySecond
-    countDownEverySecond();
 }
 
-// Nút nhấn confim
-let button1 = document.getElementById('anwer1');
-let button2 = document.getElementById('anwer2');
-let button3 = document.getElementById('anwer3');
-let button4 = document.getElementById('anwer4');
-//Đặt sự kiện click
-button1.addEventListener("click", function () {
-    let str = ` <button onclick="confim()">Tôi Chắc Chắn</button>`
-    document.getElementById('confim').innerHTML = str;
-});
-button2.addEventListener("click", function () {
-    let str = ` <button onclick="confim()">Tôi Chắc Chắn</button>`
-    document.getElementById('confim').innerHTML = str;
-});
-button3.addEventListener("click", function () {
-    let str = ` <button onclick="confim()">Tôi Chắc Chắn</button>`
-    document.getElementById('confim').innerHTML = str;
-});
-button4.addEventListener("click", function () {
-    let str = ` <button onclick="confim()">Tôi Chắc Chắn</button>`
-    document.getElementById('confim').innerHTML = str;
-});
-
-function confim(message) {
-    var result = window.confirm(message);
-    if (result) {
-        anwer()
-    }
+const interval = setInterval(updateCountdown, 1000);
+// Các mốc câu :
+function step() {
+    let str=`<div> Câu 1:</div>`
+    document.getElementById('img_1').innerHTML=str;
 }
+
+
