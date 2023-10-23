@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <title>Auto-Decreasing Timer</title>
+    <script src="index.js"></script>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+
+<div class="center">
+    <div class="img_1">TỔNG TIỀN</div>
+    <div>
+        <h1><img src="https://upload.wikimedia.org/wikipedia/vi/c/cb/ALTP_LOGO_2021.png" alt="ailatrieuohu"></h1>
+        <p> Ai Là Triệu Phú ?</p>
+    </div>
+    <div class="img_1">Câu số bao nhiêu</div>
+</div>
+<!--//Hiển thị câu hỏi và đáp án-->
+<div class="menu_1" id="gameContainer">
+    <table>
+        <thead class="question">
+        <tr>
+            <th colspan="2"><span id="cau"></span><span id="question"></span></th>
+            <!--            <th colspan="2" id="question" class="question"></th>-->
+        </tr>
+        </thead>
+        <tbody style="pointer-events: auto">
+        <tr>
+            <td>
+                <div>
+                    <button class="swich" id="anwer1" onclick="anwer(this.id)"></button>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <button class="swich" id="anwer2" onclick="anwer(this.id)"></button>
+                </div>
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <div>
+                    <button class="swich" id="anwer3" onclick="anwer(this.id)"></button>
+                </div>
+            </td>
+            <td>
+                <div>
+                    <button class="swich" id="anwer4" onclick="anwer(this.id)"></button>
+                </div>
+            </td>
+        </tr>
+        </tbody>
+
+    </table>
+</div>
+<div>
+    <div class="chucnang">
+        <div id="confim"></div><!--xác nhận đáp án-->
+        <div id="next"></div><!--    // Button qua câu tiếp theo-->
+        <div id="time">
+            <button id="time ">00:60</button>
+        </div>  <!--  đếm thời gian-->
+        <button onclick="over()"> Dừng cuộc chơi</button><!--    // button dùng cuộc chơi và đếm thời gian-->
+    </div>
+    <div id="reset"></div>
+</div>
+
+
+    <script>
+        // câu hỏi
+        let million1 = new Millioaire('Bạn Tên Là Gì ', 'A  Quốc Anh ', '3', '4', '5', 'anwer1');
+        let million2 = new Millioaire('1+2=', '2', '3', '4', '5', 'anwer2');
+        let million3 = new Millioaire('1+3=', '2', '3', '4', '5', 'anwer3');
+        let rount = 0;
+
+        start();
+
+
+        function start() {
+            rount = 1;
+            if (rount == 1) {
+                document.getElementById('cau').innerHTML = 'Câu: ' + rount;
+                document.getElementById('question').innerHTML = million1.question;
+                document.getElementById('anwer1').innerHTML = million1.answer1;
+                document.getElementById('anwer2').innerHTML = million1.answer2;
+                document.getElementById('anwer3').innerHTML = million1.answer3;
+                document.getElementById('anwer4').innerHTML = million1.answer4;
+            }
+        }
+
+        function next() {
+            rount += 1;
+            document.getElementById('cau').innerHTML = 'Câu' + rount + ':  ';
+            if (rount == 2) {
+                document.getElementById('question').innerHTML = million2.question;
+                document.getElementById('anwer1').innerHTML = million2.answer1;
+                document.getElementById('anwer2').innerHTML = million2.answer2;
+                document.getElementById('anwer3').innerHTML = million2.answer3;
+                document.getElementById('anwer4').innerHTML = million2.answer4;
+            }
+            if (rount == 3) {
+                document.getElementById('question').innerHTML = million3.question;
+                document.getElementById('anwer1').innerHTML = million3.answer1;
+                document.getElementById('anwer2').innerHTML = million3.answer2;
+                document.getElementById('anwer3').innerHTML = million3.answer3;
+                document.getElementById('anwer4').innerHTML = million3.answer4;
+            }
+        }
+
+        function anwer(id) {
+            if (rount == 1) {
+                if (id === million1.checkAnwer) {
+                    alert('yes')
+                    let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
+                    document.getElementById('next').innerHTML = str;
+
+
+                } else {
+
+                    alert('Bạn đã trả lờn sai ')
+                    rount = 1;
+                    start();
+                }
+            }
+            if (rount == 2) {
+                if (id === million2.checkAnwer) {
+                    alert('yes')
+                    let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
+                    document.getElementById('next').innerHTML = str;
+                } else {
+                    rount = 0;
+                    alert('no')
+                }
+            }
+
+        }
+
+        //Button dùng cuộc chơi
+        function over() {
+            let str = ` <br><br><button onclick="choilai()">Chơi Lại</button><br><p>Bạn Nhận được số tiền thưởng là </p>`
+            document.getElementById('reset').innerHTML = str;
+
+
+        }
+
+        function choilai() {
+            start();
+        }
+
+
+    </script>
+</body>
+</html>
