@@ -64,7 +64,8 @@ table,tr,th {
     justify-content: center;
     align-items: center;
     flex-direction: row;
-    margin: 100px;
+    margin-top:100px;
+    margin-inline-end: 10px;
     padding: inherit;
 }
 .time{
@@ -90,8 +91,8 @@ table,tr,th {
     border-color: #dddddd;
 }
 .rewardstep{
-    height: 50px;
-    width: 100px;
+    height: 40px;
+    width: 150px;
     background-color: dodgerblue;
     color: #FFFFFF;
     margin-top: 1px;
@@ -109,6 +110,11 @@ table,tr,th {
     position: fixed;
     top: 0;
     right: 0;
+    text-align: center;
+    height: 60px;
+    width: 150px;
+
+
 }
 .point{
     background-color: #3498db;
@@ -121,4 +127,24 @@ table,tr,th {
     left: 0px;
     top: 100px;
     line-height: 40px;
+    text-align: center;
+}
+.number{
+    position: absolute;
+    font-weight: bold;
+    margin: 8px;
+    z-index: 2;
+}
+.step{
+    margin-left: 10px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    line-height: 40px;
+}
+.end{
+    display: flex;
+    justify-content: center;
+    margin: 10px;
+
 }

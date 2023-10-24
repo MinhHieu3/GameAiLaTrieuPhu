@@ -6,25 +6,30 @@
     <title>Auto-Decreasing Timer</title>
     <script src="index.js"></script>
     <link rel="stylesheet" href="main_1.css">
+
 </head>
 <body>
 
 <h1><img src="https://upload.wikimedia.org/wikipedia/vi/c/cb/ALTP_LOGO_2021.png" alt="ailatrieuohu" style="width: 200px;height: 200px"></h1>
 <h1> Ai Là Triệu Phú ?</h1>
 <div class="img_1" id="reward" style="display: block">
-    <div class="rewardstep" style="background-color: rgb(243,156,18)"><p>1</p><span>100$</span></div>
-    <div class="rewardstep"><p>2</p><span>300$</span></div>
-    <div class="rewardstep"><p>3</p><span>500$</span></div>
-    <div class="rewardstep"><p>4</p><span>1000$</span></div>
-    <div class="rewardstep" style="background-color: rgb(243,156,18)"><p>5</p><span>2000$</span></div>
-    <div class="rewardstep"><p>6</p><span>5000$</span></div>
-    <div class="rewardstep"><p>7</p><span>7000$</span></div>
-    <div class="rewardstep"><p>8</p><span>9000$</span></div>
-    <div class="rewardstep"><p>9</p><span>10000$</span></div>
-    <div class="rewardstep" style="background-color: rgb(243,156,18)"><p>10</p><span>15000$</span></div>
-    <div class="rewardstep"><p>11</p><span>100$</span></div>
+    <div class="rewardstep" style="background-color: rgb(243,156,18)"><p class="number">1</p><span class="step" >100$</span></div>
+    <div class="rewardstep"><p class="number">2</p><span class="step" >300$</span></div>
+    <div class="rewardstep"><p class="number">3</p><span class="step" >500$</span></div>
+    <div class="rewardstep"><p class="number">4</p><span class="step" >1000$</span></div>
+    <div class="rewardstep" style="background-color: #848484"><p class="number">5</p><span class="step" >2000$</span></div>
+    <div class="rewardstep"><p class="number">6</p><span class="step" >5000$</span></div>
+    <div class="rewardstep"><p class="number">7</p><span class="step" >7000$</span></div>
+    <div class="rewardstep"><p class="number">8</p><span class="step" >9000$</span></div>
+    <div class="rewardstep"><p class="number">9</p><span class="step" >10000$</span></div>
+    <div class="rewardstep" style="background-color: #848484"><p class="number">10</p><span class="step" >15000$</span></div>
+    <div class="rewardstep"><p class="number">11</p><span class="step" >15000$</span></div>
+    <div class="rewardstep"><p class="number">12</p><span class="step" >20000$</span></div>
+    <div class="rewardstep"><p class="number">13</p><span class="step" >25000$</span></div>
+    <div class="rewardstep"><p class="number">14</p><span class="step" >30000$</span></div>
+    <div class="rewardstep" style="background-color: #848484"><p class="number">15</p><span class="step" id="step_15">35000$</span></div>
 </div>
-<div class="point" id="money">TỔNG TIỀN</div>
+<div class="point" id="money">0 $</div>
 </div>
 <!--//Hiển thị câu hỏi và đáp án-->
 <div class="menu_1" id="gameContainer">
@@ -73,91 +78,6 @@
     </div>
 </div>
 <div id="reset" class="reset"></div>
-
-
-<script>
-    // câu hỏi
-    let million1 = new Millioaire('Bạn Tên Là Gì ', 'A  Quốc Anh ', '3', '4', '5', 'anwer1');
-    let million2 = new Millioaire('1+2=', '2', '3', '4', '5', 'anwer2');
-    let million3 = new Millioaire('1+3=', '2', '3', '4', '5', 'anwer3');
-    let rount = 0;
-
-    start();
-
-
-    function start() {
-        rount = 1;
-        if (rount == 1) {
-            document.getElementById('cau').innerHTML = 'Câu: ' + rount;
-            document.getElementById('question').innerHTML = million1.question;
-            document.getElementById('anwer1').innerHTML = million1.answer1;
-            document.getElementById('anwer2').innerHTML = million1.answer2;
-            document.getElementById('anwer3').innerHTML = million1.answer3;
-            document.getElementById('anwer4').innerHTML = million1.answer4;
-        }
-    }
-
-    function next() {
-        rount += 1;
-        document.getElementById('cau').innerHTML = 'Câu' + rount + ':  ';
-        if (rount == 2) {
-            document.getElementById('question').innerHTML = million2.question;
-            document.getElementById('anwer1').innerHTML = million2.answer1;
-            document.getElementById('anwer2').innerHTML = million2.answer2;
-            document.getElementById('anwer3').innerHTML = million2.answer3;
-            document.getElementById('anwer4').innerHTML = million2.answer4;
-        }
-        if (rount == 3) {
-            document.getElementById('question').innerHTML = million3.question;
-            document.getElementById('anwer1').innerHTML = million3.answer1;
-            document.getElementById('anwer2').innerHTML = million3.answer2;
-            document.getElementById('anwer3').innerHTML = million3.answer3;
-            document.getElementById('anwer4').innerHTML = million3.answer4;
-        }
-        document.getElementById('next').innerHTML = '';
-    }
-
-    function anwer(id) {
-        if (rount == 1) {
-            if (id === million1.checkAnwer) {
-                alert('yes')
-                let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
-                document.getElementById('next').innerHTML = str;
-                let str_1 = 100;
-
-
-            } else {
-
-                alert('Bạn đã trả lờn sai ')
-                rount = 1;
-                start();
-            }
-        }
-        if (rount == 2) {
-            if (id === million2.checkAnwer) {
-                alert('yes')
-                let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
-                document.getElementById('next').innerHTML = str;
-            } else {
-                rount = 0;
-                alert('no')
-            }
-        }
-
-    }
-
-    //Button dùng cuộc chơi
-    function over() {
-        let str = `<button onclick="choilai()">Chơi Lại</button><div style="background-color: chartreuse;text-align: center; height: 60px;width: 700px;text-align: center;font-size: 18px">Bạn Nhận được số tiền thưởng là 1000$</div>`
-        document.getElementById('reset').innerHTML = str;
-
-
-    }
-
-    function choilai() {
-        start();
-        document.getElementById('reset').innerHTML = ' ';
-    }
-</script>
 </body>
 </html>
+<script src="index_cauhoi.js"></script>

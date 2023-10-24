@@ -62,33 +62,19 @@ class Millioaire {
 let minutes = 0;
 let seconds = 60;
 
-function updateCountdown() {
-    setInterval(interval)
-    {
-        if (minutes === 0 && seconds === 0) {
-            document.getElementById('time').textContent = "00:00";
-        } else {
-            if (seconds === 0) {
-                minutes--;
-                seconds = 59;
-            } else {
-                seconds--;
-            }
-
-            const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
-            const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
-
-            const countdownText = `${formattedMinutes}:${formattedSeconds}`;
-            document.getElementById('time').textContent = countdownText;
-        }
+setInterval(function updateCountdown() {
+    if (seconds === 0) {
+        minutes = 0;
+        seconds = 59;
+    } else {
+        seconds--;
     }
-}
+    const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
+    const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
 
-const interval = setInterval(updateCountdown, 1000);
-// Các mốc câu :
-function step() {
-    let str=`<div> Câu 1:</div>`
-    document.getElementById('img_1').innerHTML=str;
-}
+    const countdownText = `${formattedMinutes}:${formattedSeconds}`;
+    document.getElementById('time').textContent = countdownText;
 
 
+}, 1000)
+// Step giá trị
