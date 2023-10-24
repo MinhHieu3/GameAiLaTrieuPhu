@@ -28,6 +28,8 @@ function start() {
 function next() {
     rount += 1;
     document.getElementById('cau').innerHTML = 'Câu' + rount + ':  ';
+    music.play();
+
     if (rount == 2) {
         document.getElementById('question').innerHTML = million2.question;
         document.getElementById('anwer1').innerHTML = million2.answer1;
@@ -67,88 +69,141 @@ function next() {
 }
 
 function anwer(id) {
+    let music_1=document.getElementById('music_1')
+    let music_2=document.getElementById('music_2')
     if (rount == 1) {
         if (id === million1.checkAnwer) {
-            alert('yes')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
+            music.pause();
+            music_1.play();
             document.getElementById('next').innerHTML = str;
-            let str_1 = 100;
-
-
+            playerPoint += 100;
+            document.getElementById('money').innerHTML = playerPoint + '$';
         } else {
-
-            alert('Bạn đã trả lờn sai ')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            music.pause();
+            music_2.play()
             rount = 1;
             start();
         }
+        return playerPoint;
+
     }
     if (rount == 2) {
         if (id === million2.checkAnwer) {
-            alert('yes')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
+            music.pause();
+            music_1.play();
             document.getElementById('next').innerHTML = str;
+            playerPoint += 200;
+            document.getElementById('money').innerHTML = playerPoint + '$';
         } else {
-            alert('Bạn đã trả lờn sai ')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            music.pause();
+            music_2.play()
+            choilai();
             rount = 1;
-            start();
+
         }
     }
     if (rount == 3) {
         if (id === million3.checkAnwer) {
-            alert('yes')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
+            music.pause();
+            music_1.play();
             document.getElementById('next').innerHTML = str;
+            playerPoint += 700;
+            document.getElementById('money').innerHTML = playerPoint + '$';
         } else {
-            alert('Bạn đã trả lờn sai ')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            music.pause();
+            music_2.play()
+            choilai();
             rount = 1;
-            start();
         }
     }
     if (rount == 4) {
         if (id === million4.checkAnwer) {
-            alert('yes')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
+            music.pause();
+            music_1.play();
             document.getElementById('next').innerHTML = str;
+            playerPoint += 1000;
+            document.getElementById('money').innerHTML = playerPoint + '$';
         } else {
-            alert('Bạn đã trả lờn sai ')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            music_2.play()
+            choilai();
             rount = 1;
-            start();
         }
     }
     if (rount == 5) {
         if (id === million5.checkAnwer) {
-            alert('yes')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
+            music.pause();
+            music_1.play();
             document.getElementById('next').innerHTML = str;
-        } else {
-            alert('Bạn đã trả lờn sai ')
-            rount = 1;
-            start();
-        }
+            playerPoint += 3000;
+            document.getElementById('money').innerHTML = playerPoint + '$';}
+        else
+            {
+                alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+                music_2.play()
+                choilai();
+                rount = 1;
+            }
+
+
     }
     if (rount == 6) {
         if (id === million6.checkAnwer) {
-            alert('yes')
-            let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            let str = ` <button onclick="next()" id="next">Câu Tiếp Theo</button>`
             document.getElementById('next').innerHTML = str;
+            playerPoint += 3000;
+            document.getElementById('money').innerHTML = playerPoint + '$';
         } else {
-            alert('Bạn đã trả lờn sai ')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            music_2.play()
+
+            choilai();
             rount = 1;
-            start();
         }
     }
 
-}
 
-//Button dùng cuộc chơi
+}//Button dùng cuộc chơi
 function over() {
-    let str = `<button class="end" onclick="choilai()" style="background-color: red;width:80px;height: 30px ;border-radius: 5px;text-align: center;font-size: 16px">Chơi Lại</button><div class="end" style="background-color: cadetblue;width: 700px;height: 100px;text-align: center; font-weight: bold;   line-height: 60px;text-align: center;">Bạn Nhận được số tiền thưởng là 1000$</div>`
+    let str = `<button class="end" onclick="choilai()" style="background-color: red;width:80px;height: 30px ;border-radius: 5px;text-align: center;font-size: 16px">Chơi Lại</button><div id="end" style="background-color: cadetblue;width: 700px;height: 100px;text-align: center; font-weight: bold;   line-height: 60px;text-align: center;"></div>`
     document.getElementById('reset').innerHTML = str;
+    document.getElementById('end').innerHTML='Bạn Nhập được phần thưởng là :  ' +playerPoint + '$';
+    document.getElementById('next').innerHTML = ' ';
 
 
 }
 
 function choilai() {
-    start();
     document.getElementById('reset').innerHTML = ' ';
+    let point = [];
+    point.push(playerPoint)
+    console.log(point);
+    playerPoint = 0;
+    document.getElementById('money').innerHTML = playerPoint + '$';
+    start();
 }
+
+//tính tiền
+let playerPoint = 0;
+
+function checkAnwer(button) {
+    if (id === million1.checkAnwer) {
+        playerPoint += 100
+    }
+}
+
+document.getElementById('money').innerHTML = playerPoint + '$';

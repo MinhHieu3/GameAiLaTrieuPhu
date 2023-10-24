@@ -4,80 +4,95 @@
     <meta charset="UTF-8">
     <title>Title</title>
     <title>Auto-Decreasing Timer</title>
-    <script src="index.js"></script>
     <link rel="stylesheet" href="main_1.css">
+    <style>
+
+    </style>
 
 </head>
 <body>
-
-<h1><img src="https://upload.wikimedia.org/wikipedia/vi/c/cb/ALTP_LOGO_2021.png" alt="ailatrieuohu" style="width: 200px;height: 200px"></h1>
-<h1> Ai Là Triệu Phú ?</h1>
-<div class="img_1" id="reward" style="display: block">
-    <div class="rewardstep" style="background-color: rgb(243,156,18)"><p class="number">1</p><span class="step" >100$</span></div>
-    <div class="rewardstep"><p class="number">2</p><span class="step" >300$</span></div>
-    <div class="rewardstep"><p class="number">3</p><span class="step" >500$</span></div>
-    <div class="rewardstep"><p class="number">4</p><span class="step" >1000$</span></div>
-    <div class="rewardstep" style="background-color: #848484"><p class="number">5</p><span class="step" >2000$</span></div>
-    <div class="rewardstep"><p class="number">6</p><span class="step" >5000$</span></div>
-    <div class="rewardstep"><p class="number">7</p><span class="step" >7000$</span></div>
-    <div class="rewardstep"><p class="number">8</p><span class="step" >9000$</span></div>
-    <div class="rewardstep"><p class="number">9</p><span class="step" >10000$</span></div>
-    <div class="rewardstep" style="background-color: #848484"><p class="number">10</p><span class="step" >15000$</span></div>
-    <div class="rewardstep"><p class="number">11</p><span class="step" >15000$</span></div>
-    <div class="rewardstep"><p class="number">12</p><span class="step" >20000$</span></div>
-    <div class="rewardstep"><p class="number">13</p><span class="step" >25000$</span></div>
-    <div class="rewardstep"><p class="number">14</p><span class="step" >30000$</span></div>
-    <div class="rewardstep" style="background-color: #848484"><p class="number">15</p><span class="step" id="step_15">35000$</span></div>
-</div>
-<div class="point" id="money">0 $</div>
-</div>
-<!--//Hiển thị câu hỏi và đáp án-->
-<div class="menu_1" id="gameContainer">
-    <table>
-        <thead class="question">
-        <tr>
-            <th colspan="2"><span id="cau"></span><span id="question"></span></th>
-            <!--            <th colspan="2" id="question" class="question"></th>-->
-        </tr>
-        </thead>
-        <tbody style="pointer-events: auto">
-        <tr>
-            <td>
-                <div>
-                    <button class="swich" id="anwer1" onclick="anwer(this.id)"></button>
-                </div>
-            </td>
-            <td>
-                <div>
-                    <button class="swich" id="anwer2" onclick="anwer(this.id)"></button>
-                </div>
-            </td>
-        </tr>
-        <tr>
-            <td>
-                <div>
-                    <button class="swich" id="anwer3" onclick="anwer(this.id)"></button>
-                </div>
-            </td>
-            <td>
-                <div>
-                    <button class="swich" id="anwer4" onclick="anwer(this.id)"></button>
-                </div>
-            </td>
-        </tr>
-        </tbody>
-
-    </table>
-</div>
-<div class="chucnang">
-    <div id="next"></div><!--    // Button qua câu tiếp theo-->
-
-    <div class="time" id="time" style="background-color: yellow ; height: 25px;width: 50px"> 00: 60</div>
-    <div>
-        <button onclick="over()" class="swich_1"> Dừng cuộc chơi</button>
+<button onclick="showPlay()" id="startButton">Bắt Đầu </button>
+<audio id="music" src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/lqnhjqsm/Chi%20Vuol%20Essere%20Milionario%20%2801%29.mp3"></audio>
+<div id="wellcome" style="display: none">
+    <h1><img src="https://upload.wikimedia.org/wikipedia/vi/c/cb/ALTP_LOGO_2021.png" alt="ailatrieuohu"
+             style="width: 200px;height: 200px"></h1>
+    <h1> Ai Là Triệu Phú ?</h1>
+    <div class="img_1" id="reward" style="display: block">
+        <div class="rewardstep" style="background-color: rgb(243,156,18)"><p class="number">1</p><span
+                class="step">100$</span></div>
+        <div class="rewardstep"><p class="number">2</p><span class="step">300$</span></div>
+        <div class="rewardstep"><p class="number">3</p><span class="step">500$</span></div>
+        <div class="rewardstep"><p class="number">4</p><span class="step">1000$</span></div>
+        <div class="rewardstep" style="background-color: #848484"><p class="number">5</p><span class="step">2000$</span>
+        </div>
+        <div class="rewardstep"><p class="number">6</p><span class="step">5000$</span></div>
+        <div class="rewardstep"><p class="number">7</p><span class="step">7000$</span></div>
+        <div class="rewardstep"><p class="number">8</p><span class="step">9000$</span></div>
+        <div class="rewardstep"><p class="number">9</p><span class="step">10000$</span></div>
+        <div class="rewardstep" style="background-color: #848484"><p class="number">10</p><span
+                class="step">15000$</span></div>
+        <div class="rewardstep"><p class="number">11</p><span class="step">20000$</span></div>
+        <div class="rewardstep"><p class="number">12</p><span class="step">25000$</span></div>
+        <div class="rewardstep"><p class="number">13</p><span class="step">30000$</span></div>
+        <div class="rewardstep"><p class="number">14</p><span class="step">35000$</span></div>
+        <div class="rewardstep" style="background-color: #848484"><p class="number">15</p><span class="step"
+                                                                                                id="step_15">35000$</span>
+        </div>
     </div>
+    <div class="point" id="money"></div>
+    <!--//Hiển thị câu hỏi và đáp án-->
+    <div class="menu_1" id="gameContainer">
+        <audio id="music_1" src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/wfhvfdqg/Chi%20Vuol%20Essere%20Milionario%20%2809%29.mp3"></audio>
+        <audio id="music_2" src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/qalqqaxt/Chi%20Vuol%20Essere%20Milionario%20%2835%29.mp3"></audio>
+        <table>
+            <thead class="question">
+            <tr>
+                <th colspan="2"><span id="cau"></span><span id="question"></span></th>
+                <!--            <th colspan="2" id="question" class="question"></th>-->
+            </tr>
+            </thead>
+            <tbody style="pointer-events: auto">
+            <tr>
+                <td>
+                    <div>
+                        <button class="swich" id="anwer1" onclick="anwer(this.id)"></button>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button class="swich" id="anwer2" onclick="anwer(this.id)"></button>
+                    </div>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div>
+                        <button class="swich" id="anwer3" onclick="anwer(this.id)"></button>
+                    </div>
+                </td>
+                <td>
+                    <div>
+                        <button class="swich" id="anwer4" onclick="anwer(this.id)"></button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+
+        </table>
+    </div>
+    <div class="chucnang">
+        <div id="next"></div><!--    // Button qua câu tiếp theo-->
+
+        <div class="time" id="time" style="background-color: yellow ; height: 25px;width: 50px"> 00: 60</div>
+        <div>
+            <button onclick="over()" class="swich_1"> Dừng cuộc chơi</button>
+        </div>
+    </div>
+    <div id="reset" class="reset"></div>
 </div>
-<div id="reset" class="reset"></div>
+
 </body>
 </html>
+<script src="sound.js"></script>
+<script src="index.js"></script>
 <script src="index_cauhoi.js"></script>

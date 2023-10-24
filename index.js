@@ -1,3 +1,18 @@
+//màn hin bắt đầu chơi
+function showPlay() {
+    let playArea=document.getElementById('wellcome');
+    let startButton=document.getElementById('startButton')
+    playArea.style.display='block';
+    startButton.style.display='none';
+    let music=document.getElementById('music')
+    music.play();
+    start();
+
+
+}
+//Nhạc
+
+// chức năng câu hỏi
 class Millioaire {
     constructor(question, anwer1, anwer2, anwer3, anwer4, checkAnwer) {
         this.question = question;
