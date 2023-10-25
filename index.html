@@ -11,16 +11,20 @@
 
 </head>
 <body>
-<button onclick="showPlay()" id="startButton" >Bắt Đầu </button>
-<audio id="music" src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/vcmzndjc/Chi%20Vuol%20Essere%20Milionario%20%2806%29.mp3"></audio>
-<audio id="music3" src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/rtnpidac/Chi%20Vuol%20Essere%20Milionario%20%2807%29.mp3"></audio>
+<button onclick="showPlay()" id="startButton">Bắt Đầu</button>
+<audio id="music"
+       src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/vcmzndjc/Chi%20Vuol%20Essere%20Milionario%20%2806%29.mp3"></audio>
+<audio id="music3"
+       src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/rtnpidac/Chi%20Vuol%20Essere%20Milionario%20%2807%29.mp3"></audio>
 <div id="wellcome" style="display: none">
     <h1><img src="https://upload.wikimedia.org/wikipedia/vi/c/cb/ALTP_LOGO_2021.png" alt="ailatrieuohu"
              style="width: 200px;height: 200px"></h1>
     <h1 style="color: #FFFFFF"> Ai Là Triệu Phú ?</h1>
-    <p id="result" style="color: #FFFFFF; font-weight:bold ;width:500px;height: 100px ;border-radius: 5px;text-align: center;font-size: 25px"> </p>
+    <p id="result"
+       style="color: #FFFFFF; font-weight:bold ;width:500px;height: 100px ;border-radius: 5px;text-align: center;font-size: 25px"></p>
     <div class="img_1" id="reward" style="display: block">
-        <div class="rewardstep" style="background-color: rgb(243,156,18)"><p class="number">1</p><span class="step">100$</span></div>
+        <div class="rewardstep" style="background-color: rgb(243,156,18)"><p class="number">1</p><span
+                class="step">100$</span></div>
         <div class="rewardstep"><p class="number">2</p><span class="step">300$</span></div>
         <div class="rewardstep"><p class="number">3</p><span class="step">500$</span></div>
         <div class="rewardstep"><p class="number">4</p><span class="step">1000$</span></div>
@@ -36,19 +40,21 @@
         <div class="rewardstep"><p class="number">12</p><span class="step">25000$</span></div>
         <div class="rewardstep"><p class="number">13</p><span class="step">30000$</span></div>
         <div class="rewardstep"><p class="number">14</p><span class="step">35000$</span></div>
-        <div class="rewardstep" style="background-color: #848484"><p class="number">15</p><span class="step" id="step_15">35000$</span>
+        <div class="rewardstep" style="background-color: #848484"><p class="number">15</p><span class="step"
+                                                                                                id="step_15">35000$</span>
         </div>
     </div>
     <div class="point" id="money"></div>
     <!--//Hiển thị câu hỏi và đáp án-->
     <div class="menu_1" id="gameContainer">
-        <audio id="music_1" src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/wfhvfdqg/Chi%20Vuol%20Essere%20Milionario%20%2809%29.mp3"></audio>
-        <audio id="music_2" src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/qalqqaxt/Chi%20Vuol%20Essere%20Milionario%20%2835%29.mp3"></audio>
+        <audio id="music_1"
+               src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/wfhvfdqg/Chi%20Vuol%20Essere%20Milionario%20%2809%29.mp3"></audio>
+        <audio id="music_2"
+               src="https://vgmsite.com/soundtracks/who-wants-to-be-a-millionaire/qalqqaxt/Chi%20Vuol%20Essere%20Milionario%20%2835%29.mp3"></audio>
         <table>
             <thead class="question">
             <tr>
                 <th colspan="2"><span id="cau"></span><span id="question"></span></th>
-                <!--            <th colspan="2" id="question" class="question"></th>-->
             </tr>
             </thead>
             <tbody style="pointer-events: auto">
@@ -84,16 +90,20 @@
         <div id="next"></div><!--    // Button qua câu tiếp theo-->
 
         <div class="time" id="time" style="background-color: yellow ; height: 25px;width: 50px"> 00: 60</div>
+<!--       Thời Gian-->
         <div>
-            <button onclick="over()" class="swich_1"> Dừng cuộc chơi</button>
+            <button onclick="over()" class="swich_1" id="kt"> Dừng cuộc chơi</button>
         </div>
     </div>
     <div id="reset" class="reset"></div>
+    <ul id="danhsach" class="danhsach"></ul>
+
 </div>
 
+<div id="en"></div>
 </body>
 </html>
 
-<script src="index.js"></script>
-<script src="index_cauhoi.js"></script>
-<script src="sound.js"></script>
+<script src="wellcome.js"></script>
+<script src="question.js"></script>
+<script src="button.js"></script>

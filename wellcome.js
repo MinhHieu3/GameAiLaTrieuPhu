@@ -1,4 +1,4 @@
-//màn hin bắt đầu chơi
+//màn hinh bắt đầu chơi
 function showPlay() {
     let playArea=document.getElementById('wellcome');
     let startButton=document.getElementById('startButton')
