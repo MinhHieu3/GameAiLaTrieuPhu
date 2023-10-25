@@ -9,6 +9,8 @@ let million7 = new Millioaire(' ', ' ', ' ', '', '', 'anwer2');
 let million8 = new Millioaire(' ', ' ', ' ', '', '', 'anwer2');
 
 let rount = 0;
+// let storagetKey=[];
+// todoList=JSON.parse(localStorage.getItem(playerPoint));
 
 start();
 
@@ -207,3 +209,7 @@ function checkAnwer(button) {
 }
 
 document.getElementById('money').innerHTML = playerPoint + '$';
+//Lưu biến tạm
+// storagetKey.push(playerPoint)
+// let myArrayJSON = JSON.stringify(playerPoint);
+localStorage.setItem('playerPoint',playerPoint);
