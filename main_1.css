@@ -11,6 +11,8 @@
 /*}*/
 body{
     line-height: 1.42857143px;
+    background: url("https://vtv1.mediacdn.vn/k:thumb_w/640/2015/ai-la-trieu-phu-vtv-1447151391113/ai-la-trieu-phu-thay-doi-so-luong-nguoi-choi.jpg" )no-repeat;
+    background-size: cover;
 }
 h1{
     display: flex;
@@ -48,6 +50,7 @@ img{
     font-size: 20px;
 }
 table,tr,th {
+    margin-top: -100px;
     width: 700px;
 }
 .swich{
@@ -60,6 +63,7 @@ table,tr,th {
     border-color: #dddddd;
 }
 .chucnang{
+    height: 80px;
     display: flex;
     justify-content: center;
     align-items: center;

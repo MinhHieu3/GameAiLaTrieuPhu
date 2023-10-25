@@ -5,7 +5,7 @@ function showPlay() {
     playArea.style.display='block';
     startButton.style.display='none';
     let music=document.getElementById('music')
-    let music_3=document.getElementById('music_3')
+    let music3=document.getElementById('music_3')
     music.play();
     start();
 
@@ -88,8 +88,9 @@ setInterval(function updateCountdown() {
     const formattedMinutes = minutes < 10 ? "0" + minutes : minutes;
     const formattedSeconds = seconds < 10 ? "0" + seconds : seconds;
 
-    const countdownText = `${formattedMinutes}:${formattedSeconds}`;
-    document.getElementById('time').textContent = countdownText;
+    let countDownText = `${formattedMinutes}:${formattedSeconds}`;
+    document.getElementById('time').textContent = countDownText;
+
 
 
 }, 1000)

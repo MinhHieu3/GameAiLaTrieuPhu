@@ -17,7 +17,7 @@ start();
 
 function start() {
     rount = 1;
-    if (rount == 1) {
+    if (rount === 1) {
         document.getElementById('cau').innerHTML = 'Câu: ' + rount + ' ';
         document.getElementById('question').innerHTML = million1.question;
         document.getElementById('anwer1').innerHTML = million1.answer1;
@@ -31,37 +31,36 @@ function next() {
     rount += 1;
     document.getElementById('cau').innerHTML = 'Câu' + rount + ':  ';
     music.play();
-    document.getElementById('result').innerHTML=' ';
-
-    if (rount == 2) {
+    document.getElementById('result').innerHTML = ' ';
+    if (rount === 2) {
         document.getElementById('question').innerHTML = million2.question;
         document.getElementById('anwer1').innerHTML = million2.answer1;
         document.getElementById('anwer2').innerHTML = million2.answer2;
         document.getElementById('anwer3').innerHTML = million2.answer3;
         document.getElementById('anwer4').innerHTML = million2.answer4;
     }
-    if (rount == 3) {
+    if (rount === 3) {
         document.getElementById('question').innerHTML = million3.question;
         document.getElementById('anwer1').innerHTML = million3.answer1;
         document.getElementById('anwer2').innerHTML = million3.answer2;
         document.getElementById('anwer3').innerHTML = million3.answer3;
         document.getElementById('anwer4').innerHTML = million3.answer4;
     }
-    if (rount == 4) {
+    if (rount === 4) {
         document.getElementById('question').innerHTML = million4.question;
         document.getElementById('anwer1').innerHTML = million4.answer1;
         document.getElementById('anwer2').innerHTML = million4.answer2;
         document.getElementById('anwer3').innerHTML = million4.answer3;
         document.getElementById('anwer4').innerHTML = million4.answer4;
     }
-    if (rount == 5) {
+    if (rount === 5) {
         document.getElementById('question').innerHTML = million5.question;
         document.getElementById('anwer1').innerHTML = million5.answer1;
         document.getElementById('anwer2').innerHTML = million5.answer2;
         document.getElementById('anwer3').innerHTML = million5.answer3;
         document.getElementById('anwer4').innerHTML = million5.answer4;
     }
-    if (rount == 6) {
+    if (rount === 6) {
         document.getElementById('question').innerHTML = million6.question;
         document.getElementById('anwer1').innerHTML = million6.answer1;
         document.getElementById('anwer2').innerHTML = million6.answer2;
@@ -72,10 +71,10 @@ function next() {
 }
 
 function anwer(id) {
-    let music_2=document.getElementById('music_1')
-    let music_1=document.getElementById('music_2')
-    let Result_1=document.getElementById('result')
-    if (rount == 1) {
+    let music_2 = document.getElementById('music_1')
+    let music_1 = document.getElementById('music_2')
+    let Result_1 = document.getElementById('result')
+    if (rount === 1) {
         if (id === million1.checkAnwer) {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
@@ -84,12 +83,13 @@ function anwer(id) {
             document.getElementById('next').innerHTML = str;
             playerPoint += 100;
             document.getElementById('money').innerHTML = playerPoint + '$';
-            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+            document.getElementById('result').innerHTML = 'Chúc Mừng Bạn Đã Trả Lời Đúng';
+
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music.pause();
             music_2.play()
-            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+            document.getElementById('result').innerHTML = 'Rất Tiếc Bạn Đã Trả Lời Sai'
 
             rount = 1;
             start();
@@ -97,21 +97,21 @@ function anwer(id) {
         return playerPoint;
 
     }
-    if (rount == 2) {
+    if (rount === 2) {
         if (id === million2.checkAnwer) {
-            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ');
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
             music.pause();
             music_1.play();
             document.getElementById('next').innerHTML = str;
             playerPoint += 200;
             document.getElementById('money').innerHTML = playerPoint + '$';
-            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã Trả Lời Đúng'
+            document.getElementById('result').innerHTML = 'Chúc Mừng Bạn Đã Trả Lời Đúng'
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music.pause();
             music_2.play()
-            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+            document.getElementById('result').innerHTML = 'Rất Tiếc Bạn Đã Trả Lời Sai'
             // choilai();
             over();
             rount = 1;
@@ -127,19 +127,19 @@ function anwer(id) {
             document.getElementById('next').innerHTML = str;
             playerPoint += 200;
             document.getElementById('money').innerHTML = playerPoint + '$';
-            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+            document.getElementById('result').innerHTML = 'Chúc Mừng Bạn Đã trả Lời Đúng'
 
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music.pause();
             music_2.play()
-            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+            document.getElementById('result').innerHTML = 'Rất Tiếc Bạn Đã Trả Lời Sai'
 
             over();
             rount = 1;
         }
     }
-    if (rount == 4) {
+    if (rount === 4) {
         if (id === million4.checkAnwer) {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
@@ -148,18 +148,18 @@ function anwer(id) {
             document.getElementById('next').innerHTML = str;
             playerPoint += 500;
             document.getElementById('money').innerHTML = playerPoint + '$';
-            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+            document.getElementById('result').innerHTML = 'Chúc Mừng Bạn Đã trả Lời Đúng'
 
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music_2.play()
-            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+            document.getElementById('result').innerHTML = 'Rất Tiếc Bạn Đã Trả Lời Sai'
 
             over();
             rount = 1;
         }
     }
-    if (rount == 5) {
+    if (rount === 5) {
         if (id === million5.checkAnwer) {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             let str = ` <button onclick="next()">Câu Tiếp Theo</button>`
@@ -168,19 +168,16 @@ function anwer(id) {
             document.getElementById('next').innerHTML = str;
             playerPoint += 1000;
             document.getElementById('money').innerHTML = playerPoint + '$';
-            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+            document.getElementById('result').innerHTML = 'Chúc Mừng Bạn Đã trả Lời Đúng'
 
+        } else {
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            music_2.play()
+            document.getElementById('result').innerHTML = 'Rất Tiếc Bạn Đã Trả Lời Sai'
+
+            over();
+            rount = 1;
         }
-
-        else
-            {
-                alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
-                music_2.play()
-                document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
-
-                over();
-                rount = 1;
-            }
 
 
     }
@@ -191,12 +188,31 @@ function anwer(id) {
             document.getElementById('next').innerHTML = str;
             playerPoint += 3000;
             document.getElementById('money').innerHTML = playerPoint + '$';
-            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+            document.getElementById('result').innerHTML = 'Chúc Mừng Bạn Đã trả Lời Đúng'
 
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music_2.play()
-            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+            document.getElementById('result').innerHTML = 'Rất Tiếc Bạn Đã Trả Lời Sai'
+
+
+            over();
+            rount = 1;
+        }
+    }
+    if (rount == 7) {
+        if (id === million7.checkAnwer) {
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            let str = ` <button onclick="next()" id="next">Câu Tiếp Theo</button>`
+            document.getElementById('next').innerHTML = str;
+            playerPoint += 3000;
+            document.getElementById('money').innerHTML = playerPoint + '$';
+            document.getElementById('result').innerHTML = 'Chúc Mừng Bạn Đã trả Lời Đúng'
+
+        } else {
+            alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
+            music_2.play()
+            document.getElementById('result').innerHTML = 'Rất Tiếc Bạn Đã Trả Lời Sai'
 
 
             over();
@@ -207,12 +223,11 @@ function anwer(id) {
 
 }//Button dùng cuộc chơi
 function over() {
-    let str = `<button class="end" onclick="choilai()" style="background-color: red;width:80px;height: 30px ;border-radius: 5px;text-align: center;font-size: 16px">Chơi Lại</button><div id="end" style="background-color: cadetblue;width: 700px;height: 100px;text-align: center; font-weight: bold;   line-height: 60px;text-align: center;"></div>`
+    let str = `<button class="end" onclick="choilai()" style="background-color: red;width:80px;height: 30px ;border-radius: 5px;text-align: center;font-size: 16px">Chơi Lại</button><div id="end" style="background-color: cadetblue;width: 700px;height: 100px;text-align: center; font-weight: bold;   line-height: 60px;text-align: center;font-size: 20px"></div>`
     document.getElementById('reset').innerHTML = str;
-    document.getElementById('end').innerHTML='Bạn Nhập được phần thưởng là :  ' +playerPoint + '$';
+    document.getElementById('end').innerHTML = 'Bạn Nhập được phần thưởng là :  ' + playerPoint + '$';
     document.getElementById('next').innerHTML = ' ';
     // document.getElementById('result').innerHTML=' Rất Tiếc Bạn Đã Trả Lời Sai';
-
 
 
 }
@@ -224,10 +239,10 @@ function choilai() {
     console.log(point);
     playerPoint = 0;
     document.getElementById('money').innerHTML = playerPoint + '$';
-    document.getElementById('result').innerHTML=' ';
+    document.getElementById('result').innerHTML = ' ';
 
     start();
-    return playerPoint=0;
+    return playerPoint = 0;
 }
 
 //tính tiền
