@@ -31,6 +31,7 @@ function next() {
     rount += 1;
     document.getElementById('cau').innerHTML = 'Câu' + rount + ':  ';
     music.play();
+    document.getElementById('result').innerHTML=' ';
 
     if (rount == 2) {
         document.getElementById('question').innerHTML = million2.question;
@@ -71,8 +72,9 @@ function next() {
 }
 
 function anwer(id) {
-    let music_1=document.getElementById('music_1')
-    let music_2=document.getElementById('music_2')
+    let music_2=document.getElementById('music_1')
+    let music_1=document.getElementById('music_2')
+    let Result_1=document.getElementById('result')
     if (rount == 1) {
         if (id === million1.checkAnwer) {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
@@ -82,10 +84,13 @@ function anwer(id) {
             document.getElementById('next').innerHTML = str;
             playerPoint += 100;
             document.getElementById('money').innerHTML = playerPoint + '$';
+            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music.pause();
             music_2.play()
+            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+
             rount = 1;
             start();
         }
@@ -101,11 +106,14 @@ function anwer(id) {
             document.getElementById('next').innerHTML = str;
             playerPoint += 200;
             document.getElementById('money').innerHTML = playerPoint + '$';
+            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã Trả Lời Đúng'
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music.pause();
             music_2.play()
-            choilai();
+            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+            // choilai();
+            over();
             rount = 1;
 
         }
@@ -117,13 +125,17 @@ function anwer(id) {
             music.pause();
             music_1.play();
             document.getElementById('next').innerHTML = str;
-            playerPoint += 700;
+            playerPoint += 200;
             document.getElementById('money').innerHTML = playerPoint + '$';
+            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music.pause();
             music_2.play()
-            choilai();
+            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+
+            over();
             rount = 1;
         }
     }
@@ -134,12 +146,16 @@ function anwer(id) {
             music.pause();
             music_1.play();
             document.getElementById('next').innerHTML = str;
-            playerPoint += 1000;
+            playerPoint += 500;
             document.getElementById('money').innerHTML = playerPoint + '$';
+            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music_2.play()
-            choilai();
+            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+
+            over();
             rount = 1;
         }
     }
@@ -150,13 +166,19 @@ function anwer(id) {
             music.pause();
             music_1.play();
             document.getElementById('next').innerHTML = str;
-            playerPoint += 3000;
-            document.getElementById('money').innerHTML = playerPoint + '$';}
+            playerPoint += 1000;
+            document.getElementById('money').innerHTML = playerPoint + '$';
+            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+
+        }
+
         else
             {
                 alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
                 music_2.play()
-                choilai();
+                document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
+
+                over();
                 rount = 1;
             }
 
@@ -169,11 +191,15 @@ function anwer(id) {
             document.getElementById('next').innerHTML = str;
             playerPoint += 3000;
             document.getElementById('money').innerHTML = playerPoint + '$';
+            document.getElementById('result').innerHTML='Chúc Mừng Ban Đã trả Lời Đúng'
+
         } else {
             alert('Bạn Đồng Ý Với Câu Trả Lời Của Mình ? ')
             music_2.play()
+            document.getElementById('result').innerHTML='Rất Tiếc Ban Đã Trả Lời Sai'
 
-            choilai();
+
+            over();
             rount = 1;
         }
     }
@@ -185,6 +211,8 @@ function over() {
     document.getElementById('reset').innerHTML = str;
     document.getElementById('end').innerHTML='Bạn Nhập được phần thưởng là :  ' +playerPoint + '$';
     document.getElementById('next').innerHTML = ' ';
+    // document.getElementById('result').innerHTML=' Rất Tiếc Bạn Đã Trả Lời Sai';
+
 
 
 }
@@ -196,7 +224,10 @@ function choilai() {
     console.log(point);
     playerPoint = 0;
     document.getElementById('money').innerHTML = playerPoint + '$';
+    document.getElementById('result').innerHTML=' ';
+
     start();
+    return playerPoint=0;
 }
 
 //tính tiền
@@ -210,6 +241,3 @@ function checkAnwer(button) {
 
 document.getElementById('money').innerHTML = playerPoint + '$';
 //Lưu biến tạm
-// storagetKey.push(playerPoint)
-// let myArrayJSON = JSON.stringify(playerPoint);
-localStorage.setItem('playerPoint',playerPoint);

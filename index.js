@@ -5,6 +5,7 @@ function showPlay() {
     playArea.style.display='block';
     startButton.style.display='none';
     let music=document.getElementById('music')
+    let music_3=document.getElementById('music_3')
     music.play();
     start();
 
